@@ -1,0 +1,30 @@
+<html>
+<?php
+//echo 'hello';
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'goatcalc_admin');
+define('DB_PASSWORD', 'admin123');
+define('DB_DATABASE', 'goatcalc_main');
+$db=mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+$query = "SELECT * FROM Player WHERE 1";
+$result=mysqli_query($db,$query);
+$num=mysqli_num_rows($result);
+echo $num;
+echo "<br />\r\n";
+while ($row = mysqli_fetch_assoc($result)) {
+//print_r($row);
+
+print 'FirstName: '.$row['FirstName'].' ';
+print 'LastName: '.$row['LastName'].' ';
+print 'Team: '.$row['Team'].' ';
+print 'Points: '.$row['Points'].' ';
+print 'Rebounds: '.$row['Rebounds'].' ';
+print 'Assists: '.$row['Asissts'].' ';
+print 'Blocks: '.$row['Blocks'].' ';
+print 'Steals: '.$row['Steals'].' ';
+
+print "<br/>";
+}
+
+?>
+</html>
